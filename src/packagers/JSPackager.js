@@ -141,9 +141,7 @@ class JSPackager extends Packager {
       return false;
     }
 
-    let bundleLoader = this.bundler.loadedAssets.get(
-      require.resolve('../builtins/bundle-loader')
-    );
+    let bundleLoader = null;
     if (this.externalModules.size > 0 && !bundleLoader) {
       bundleLoader = await this.bundler.getAsset('_bundle_loader');
     }
